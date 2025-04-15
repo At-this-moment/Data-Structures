@@ -55,46 +55,46 @@ int main()
     ll.size = 0;       // 리스트 크기도 0으로 초기화
 
     // 사용자에게 메뉴를 출력
-	printf("1: Insert an integer to the sorted linked list:\n");
-	printf("2: Print the index of the most recent input value:\n");
-	printf("3: Print sorted linked list:\n");
-	printf("0: Quit:");
+    printf("1: Insert an integer to the sorted linked list:\n");
+    printf("2: Print the index of the most recent input value:\n");
+    printf("3: Print sorted linked list:\n");
+    printf("0: Quit:");
 
     // 사용자가 0을 입력할 때까지 계속 반복
-	while (c != 0)
-	{
+    while (c != 0)
+    {
         printf("\nPlease input your choice(1/2/3/0): "); // 사용자 입력 요청
         scanf("%d", &c); // 숫자 입력받기
 
         switch (c) // 입력에 따라 동작 분기
-		{
-		case 1:
-			printf("Input an integer that you want to add to the linked list: ");
+        {
+        case 1:
+            printf("Input an integer that you want to add to the linked list: ");
             scanf("%d", &i); // 삽입할 숫자 입력받기
             j = insertSortedLL(&ll, i); // 정렬 삽입 함수 호출, 결과 인덱스를 j에 저장
-			printf("The resulting linked list is: ");
+            printf("The resulting linked list is: ");
             printList(&ll); // 리스트 출력
-			break;
+            break;
 
-		case 2:
+        case 2:
             printf("The value %d was added at index %d\n", i, j); // 마지막 삽입 값 위치 출력
-			break;
+            break;
 
-		case 3:
-			printf("The resulting sorted linked list is: ");
+        case 3:
+            printf("The resulting sorted linked list is: ");
             printList(&ll); // 리스트 출력
             removeAllItems(&ll); // 모든 노드 삭제 (초기화)
-			break;
+            break;
 
-		case 0:
+        case 0:
             removeAllItems(&ll); // 종료 전 메모리 정리
-			break;
+            break;
 
-		default:
+        default:
             printf("Choice unknown;\n"); // 잘못된 입력
-			break;
-		}
-	}
+            break;
+        }
+    }
 
     return 0; // 프로그램 종료
 }
