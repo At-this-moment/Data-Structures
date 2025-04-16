@@ -73,7 +73,7 @@ int main()
 			removeAllItems(&ll);
 			break;
 		case 0:
-			removeAllItems(&ll재);
+			removeAllItems(&ll);
 			break;
 		default:
 			printf("Choice unknown;\n");
