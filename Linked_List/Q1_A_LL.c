@@ -105,30 +105,30 @@ int main()
 int insertSortedLL(LinkedList *ll, int item)//정렬삽입=숫자를 오름차순으로 삽입시키기
 {
 	/* add your code here */
-	if(ll==NULL)
-		return -1;//리스트가 NULL이면 실패
+	if(ll==NULL)//포인터가 널이면=리스트가 존재하지 않으면
+		return -1;//삽입 실패 -1 리턴
 
-	if(ll->size==0){//리스트가 비어있으면 맨앞에, 0번인덱스에 삽입
-		insertNode(ll,0,item);
-		return 0;
+	if(ll->size==0){//리스트가 비어있으면 
+		insertNode(ll,0,item);//맨앞에, 0번인덱스에 삽입
+		return 0;//삽입 위치 0 리턴
 	}
 
-	ListNode *cur=ll->head;
-	int index=0;
+	ListNode *cur=ll->head;//선언,리스트의 헤드(첫번째노드)를 가리키는 포인터cur
+	int index=0;//삽입할 위치를 추적하는 변수 인덱스(0부터 시작)
 
-	while(cur!=NULL){
-		if(cur->item==item)//이미 존재하면 넣지 않음
-		return -1;
+	while(cur!=NULL){//커서가 널이 되기전까지 = 리스트끝까지
+		if(cur->item==item)//이미 존재하면
+		return -1;//삽입 안하고 -1 반환, 중복은 X
 
-		if(cur->item>item)
-		break;
+		if(cur->item>item)//현재 값이 삽입하려는 값보다 크면
+		break;//여기에 넣어야하므로 종료
 
-		cur=cur->next;
-		index++;
+		cur=cur->next;//다음 노드로 이동
+		index++;//위치값 증가시켜줌줌
 	}
-	insertNode(ll,index,item);//찾은위치에 값 삽입
+	insertNode(ll,index,item);//찾은위치에 아이템값 삽입
 
-	return index;//삽입 이ㅜ치 반환
+	return index;//삽입 이ㅜ치 인덱스반환
 }
 
 ///////////////////////////////////////////////////////////////////////////////////
