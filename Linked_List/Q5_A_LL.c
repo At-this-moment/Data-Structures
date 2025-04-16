@@ -113,6 +113,15 @@ void frontBackSplitLinkedList(LinkedList *ll, LinkedList *resultFrontList, Linke
 	//그때 mid를 기준으로ㅜ if문 만들어서
 	//넣을 리스트를 바꿔주면 인서트 노드함수써서
 
+	for(int i=0; i<ll->size; i++){
+		ListNode *node=findNode(ll,i);
+		if (i<mid){
+			insertNode(resultFrontList, resultFrontList->size, node->item);
+		}else{
+			insertNode(resultBackList, resultBackList->size, node->item);
+		}
+	}
+
 
 }
 
